@@ -27,6 +27,7 @@ head x;
 
 
 %%
+
 [a-zA-Z][a-zA-Z0-9]* {
 printf("Identifier:");
 puts(yytext);
@@ -37,10 +38,12 @@ printf("\n");
 //printf("Identifier found:%c\n",string[coutn]);
 coutn++;common++;
 };
+
+
 [\{\}\+\=;,<>#\.&"\\\(\)%:] {
 	printf("Special Symbol:\'%s\'\n",yytext);
 	insert(&x,yytext);
-common++;
+	common++;
 }
 %%
 
@@ -52,7 +55,6 @@ void insert(head *t,char ** ele){
 	strcpy(p->s,ele);
 	p->next=NULL;
 		
-	puts(p->s);
 	
 	
 	
@@ -72,11 +74,20 @@ void insert(head *t,char ** ele){
 		q=q->next;
 	}
 	
+	if(q->next==NULL && strcmp(q->s,ele)==0){
+		q->count++;
+		flag=1;
+		
+	
+	}
+	
 	if(flag==0){
 		p->count=1;
 		q->next=p;
 		
 	}
+	
+	
 	
 	
 
