@@ -1,0 +1,1 @@
+the above code is executable in linux OS , please execute .py file and then execute ./a.out command for simplicity.
